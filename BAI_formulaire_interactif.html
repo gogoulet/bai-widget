@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Inventaire d'anxiété de Beck (IAB) — Formulaire interactif</title>
+<style>
+  :root { --accent: #0f766e; --bg:#f8fafc; --card:#ffffff; --muted:#64748b; --danger:#b91c1c; }
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); margin:0; }
+  header { padding: 24px 16px; background: var(--card); border-bottom: 1px solid #e5e7eb; position: sticky; top:0; z-index: 10;}
+  .container { max-width: 900px; margin: 0 auto; padding: 16px; }
+  h1 { margin: 0 0 8px; font-size: clamp(22px, 4vw, 28px); }
+  .subtitle { color: var(--muted); }
+  .card { background: var(--card); border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,.03);}
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 10px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  th.sticky { position: sticky; top: 64px; background: var(--card); z-index: 5; }
+  .q-index { width: 32px; text-align:center; color: var(--muted); }
+  .options { display: grid; grid-template-columns: repeat(4, minmax(120px,1fr)); gap: 8px; }
+  .opt { display:flex; align-items:flex-start; gap:8px; }
+  .muted { color: var(--muted); font-size: 14px; }
+  .row:hover { background:#f8fafc; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  input[type="text"], input[type="date"] { padding:10px 12px; border:1px solid #e2e8f0; border-radius:10px; width:100%; }
+  .badge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:600; font-size: 12px; }
+  .badge.min { background:#ecfeff; color:#155e75; }
+  .badge.mild { background:#f0fdf4; color:#166534; }
+  .badge.mod { background:#fff7ed; color:#9a3412; }
+  .badge.sev { background:#fef2f2; color:#991b1b; }
+  .actions { display:flex; flex-wrap: wrap; gap: 8px; }
+  button { padding:10px 14px; border-radius:10px; border:1px solid #e5e7eb; background:#ffffff; cursor:pointer; }
+  button.primary { background: var(--accent); color: #fff; border-color: transparent; }
+  .footer-note { font-size: 12px; color: var(--muted); }
+  @media (max-width: 720px) {
+    .options { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Inventaire d'anxiété de Beck (IAB) — Formulaire interactif</h1>
+      <div class="subtitle">Période de référence: la dernière semaine (aujourd'hui inclus). Veuillez choisir une option par item.</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="grid">
+        <div>
+          <label for="nom" class="muted">Nom</label>
+          <input id="nom" name="nom" type="text" placeholder="Nom et prénom"/>
+        </div>
+        <div>
+          <label for="date" class="muted">Date</label>
+          <input id="date" name="date" type="date" value="2025-10-23"/>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:8px">
+        Consignes: Cochez pour chaque symptôme à quel degré vous avez été affecté(e) au cours de la <strong>dernière semaine</strong>.
+      </p>
+    </section>
+
+    <section class="card">
+      <table>
+        <thead>
+          <tr>
+            <th class="q-index sticky">#</th>
+            <th class="sticky">Symptôme</th>
+            <th class="sticky">Options (0 = Pas du tout · 1 = Un peu · 2 = Modérément · 3 = Beaucoup)</th>
+          </tr>
+        </thead>
+        <tbody>
+
+      <tr class="row">
+        <td class="q-index">1</td>
+        <td>sensations d'engourdissement ou de picotement</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q1" id="q1_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q1" id="q1_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q1" id="q1_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q1" id="q1_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">2</td>
+        <td>bouffées de chaleur</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q2" id="q2_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q2" id="q2_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q2" id="q2_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q2" id="q2_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">3</td>
+        <td>"jambes molles", tremblements dans les jambes</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q3" id="q3_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q3" id="q3_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q3" id="q3_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q3" id="q3_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">4</td>
+        <td>incapacité de se détendre</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q4" id="q4_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q4" id="q4_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q4" id="q4_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q4" id="q4_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">5</td>
+        <td>crainte que le pire ne survienne</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q5" id="q5_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q5" id="q5_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q5" id="q5_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q5" id="q5_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">6</td>
+        <td>étourdissement ou vertige, désorientation</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q6" id="q6_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q6" id="q6_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q6" id="q6_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q6" id="q6_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">7</td>
+        <td>battements cardiaques marqués</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q7" id="q7_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q7" id="q7_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q7" id="q7_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q7" id="q7_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">8</td>
+        <td>mal assuré(e), manque d'assurance dans mes mouvements</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q8" id="q8_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q8" id="q8_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q8" id="q8_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q8" id="q8_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">9</td>
+        <td>terrifié(e)</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q9" id="q9_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q9" id="q9_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q9" id="q9_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q9" id="q9_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">10</td>
+        <td>nervosité</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q10" id="q10_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q10" id="q10_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q10" id="q10_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q10" id="q10_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">11</td>
+        <td>sensation d'étouffement</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q11" id="q11_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q11" id="q11_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q11" id="q11_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q11" id="q11_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">12</td>
+        <td>tremblement de mains</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q12" id="q12_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q12" id="q12_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q12" id="q12_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q12" id="q12_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">13</td>
+        <td>tremblements, chancelant(e)</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q13" id="q13_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q13" id="q13_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q13" id="q13_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q13" id="q13_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">14</td>
+        <td>crainte de perdre le contrôle</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q14" id="q14_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q14" id="q14_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q14" id="q14_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q14" id="q14_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">15</td>
+        <td>respiration difficile</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q15" id="q15_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q15" id="q15_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q15" id="q15_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q15" id="q15_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">16</td>
+        <td>peur de mourir</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q16" id="q16_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q16" id="q16_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q16" id="q16_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q16" id="q16_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">17</td>
+        <td>sensation de peur, "avoir la frousse"</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q17" id="q17_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q17" id="q17_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q17" id="q17_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q17" id="q17_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">18</td>
+        <td>indigestion ou malaise abdominal</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q18" id="q18_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q18" id="q18_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q18" id="q18_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q18" id="q18_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">19</td>
+        <td>sensation de défaillance ou d'évanouissement</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q19" id="q19_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q19" id="q19_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q19" id="q19_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q19" id="q19_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">20</td>
+        <td>rougissement du visage</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q20" id="q20_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q20" id="q20_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q20" id="q20_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q20" id="q20_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+      <tr class="row">
+        <td class="q-index">21</td>
+        <td>transpiration (non associée à la chaleur)</td>
+        <td><div class="options"><label class="opt"><input type="radio" name="q21" id="q21_0" value="0" required> <span>Pas du tout — Cela ne m'a pas beaucoup dérangé</span></label><label class="opt"><input type="radio" name="q21" id="q21_1" value="1" required> <span>Un peu — Déplaisant, mais supportable</span></label><label class="opt"><input type="radio" name="q21" id="q21_2" value="2" required> <span>Modérément — C'était très déplaisant mais supportable</span></label><label class="opt"><input type="radio" name="q21" id="q21_3" value="3" required> <span>Beaucoup — Je pouvais à peine le supporter</span></label></div></td>
+      </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0">Résultats</h2>
+      <p class="muted">Le score total est la somme des 21 items (0–63). Interprétation indicative ci‑dessous (non diagnostique).</p>
+      <div class="grid">
+        <div>
+          <div class="muted">Score total</div>
+          <div style="font-size:42px; font-weight:800;" id="total">0</div>
+        </div>
+        <div>
+          <div class="muted">Interprétation</div>
+          <div id="band" class="badge min">Minimal (0–7)</div>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:16px">
+        <button class="primary" onclick="calculer()">Calculer / Mettre à jour</button>
+        <button onclick="window.print()">Imprimer</button>
+        <button onclick="exportJSON()">Télécharger (.json)</button>
+        <button onclick="exportCSV()">Télécharger (.csv)</button>
+        <button onclick="resetForm()">Réinitialiser</button>
+      </div>
+      <p class="footer-note" style="margin-top:12px">
+        Note clinique: Cet outil de dépistage n'est pas un diagnostic. En cas de détresse, contactez un professionnel de la santé mentale.
+      </p>
+    </section>
+  </main>
+
+<script>
+function getScore() {
+  let total = 0;
+  for (let i = 1; i <= 21; i++) {
+    const name = "q"+i;
+    const el = document.querySelector('input[name="'+name+'"]:checked');
+    if (el) total += parseInt(el.value, 10);
+  }
+  return total;
+}
+
+function banding(total) {
+  if (total <= 7) return {cls:"min", text:"Minimal (0–7)"};
+  if (total <= 15) return {cls:"mild", text:"Léger (8–15)"};
+  if (total <= 25) return {cls:"mod", text:"Modéré (16–25)"};
+  return {cls:"sev", text:"Sévère (26–63)"};
+}
+
+function calculer() {
+  const total = getScore();
+  document.getElementById('total').textContent = total;
+  const b = document.getElementById('band');
+  b.className = "badge " + banding(total).cls;
+  b.textContent = banding(total).text;
+}
+
+function resetForm() {
+  document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+  document.getElementById('total').textContent = 0;
+  const b = document.getElementById('band');
+  b.className = "badge min";
+  b.textContent = "Minimal (0–7)";
+}
+
+function exportJSON() {
+  const data = {
+    nom: document.getElementById('nom').value || "",
+    date: document.getElementById('date').value || "",
+    reponses: {},
+    total: getScore(),
+    interpretation: banding(getScore()).text
+  };
+  for (let i = 1; i <= 21; i++) {
+    const checked = document.querySelector('input[name="q'+i+'"]:checked');
+    data.reponses['q'+i] = checked ? parseInt(checked.value, 10) : null;
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = "BAI_resultats.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function exportCSV() {
+  let rows = [["Nom","Date","Total","Interprétation"].concat(Array.from({length:21}, (_,i)=>"Q"+(i+1)))];
+  const nom = document.getElementById('nom').value || "";
+  const date = document.getElementById('date').value || "";
+  const total = getScore();
+  const inter = banding(total).text;
+  const answers = [];
+  for (let i = 1; i <= 21; i++) {
+    const checked = document.querySelector('input[name="q'+i+'"]:checked');
+    answers.push(checked ? parseInt(checked.value, 10) : "");
+  }
+  rows.push([nom, date, total, inter].concat(answers));
+  const csv = rows.map(r => r.map(x => typeof x === "string" ? '"'+x.replaceAll('"','""')+'"' : x).join(",")).join("\n");
+  const blob = new Blob([csv], {type: "text/csv"});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = "BAI_resultats.csv";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>
